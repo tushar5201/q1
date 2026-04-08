@@ -1,0 +1,15 @@
+version: 2.1
+jobs:
+  test:
+    docker:
+      - image: cimg/python:3.10
+    steps:
+      - checkout
+      - run:
+          name: Run Unit Tests
+          command: python test_factorial.py
+
+workflows:
+  build_and_test:
+    jobs:
+      - test
